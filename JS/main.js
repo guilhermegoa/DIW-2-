@@ -39,11 +39,33 @@ $(document).ready(function () {
     //Carrega post
     function carregaPost(noticia) {
         dbGoa = JSON.parse(localStorage.getItem('dbGuilhermeOliveira'));
-        $('#tela-post').append(`<div class="post-post"><h2>${dbGoa[noticia].titulo}</h2>
-        <img src="${dbGoa[noticia].imagem}" alt="">
-        <p>${dbGoa[noticia].conteudo}</p></div>
-        <a type="button" id="botao-like"><img src="https://cdn4.iconfinder.com/data/icons/like-18/32/459-01-512.png" alt="likeImg"
-        >${dbGoa[noticia].like}</a>`);
+        $('#tela-post').append(`<div class="post-post">
+        <h2>${dbGoa[noticia].titulo}</h2>
+        <img src="${dbGoa[noticia].imagem}" alt="" />
+        <p>${dbGoa[noticia].conteudo}</p>
+      </div>
+      <section id="comentarios">
+        <div class="comentario-like">
+          <a type="button" id="botao-like">
+            <img
+              src="https://cdn4.iconfinder.com/data/icons/like-18/32/459-01-512.png"
+              alt="likeImg"
+            />
+          </a>
+          <div>
+            <p>${dbGoa[noticia].like}</p>
+          </div>
+        </div>
+        <div class="coment-coment">
+          <div id="comentario-carrega"></div>
+          <textarea
+            name=""
+            id="novo-comentario"
+            cols="100"
+            rows="10"
+          ></textarea>
+        </div>
+      </section>`);
     }
 
     //EVENTOS
