@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Meu blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./main.css" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="main.js"></script>
+    <script src="db.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1 class="header-color">Meu Blog</h1>
+      <button id="header-botao" class="header-color" type="button">
+        Novo Post
+      </button>
+      <div>
+        <a href=""><p class="header-color">Home</p></a>
+        <a href=""><p class="header-color">GitHub</p></a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Tela login -->
+      <div id="tela-login" class="tela">
+        <form action="" id="form-login">
+          <input id="login-nome" type="text" placeholder="Nome" />
+          <input id="login-senha" type="password" placeholder="Senha" />
+          <button id="login-botao" type="button">Entrar</button>
+          <button id="login-cadastro" class="btn-cadastro" type="button">
+            cadastre-se
+          </button>
+        </form>
+      </div>
+      <!-- Fim -->
+
+      <!-- Tela de cadastro -->
+      <div id="tela-cadastro" class="tela esconder">
+        <form action="" id="form-cadastro">
+          <input id="cadastro-nome" type="text" placeholder="Nome" />
+          <input id="cadastro-email" type="text" placeholder="email" />
+          <input id="cadastro-senha" type="password" placeholder="Senha" />
+          <button id="cadastro-confirmar" class="btn-cadastro" type="button">
+            cadastrar
+          </button>
+        </form>
+      </div>
+      <!-- Fim -->
+      
+      <!-- Tela principal -->
+      <div id="tela-principal" class="tela esconder"></div>
+      <!-- Fim -->
+
+      <!-- Tela post-->
+      <div id="tela-post" class="tela esconder"></div>
+      <!-- Fim -->
+
+      <!-- Tela criar post -->
+      <div id="tela-criar-post" class="tela esconder">
+        <div class="novo-post">
+          <h2>Novo Post</h2>
+          <input id="criar-post-autor" type="text" placeholder="Autor" />
+          <input id="criar-post-titulo" type="text" placeholder="Titulo" />
+          <input
+            id="criar-post-descricao"
+            type="text"
+            placeholder="Descrição"
+          />
+          <input id="criar-post-imagem" class="sem-cor" type="file" placeholder="Imagem" />
+          <textarea
+            id="criar-post-conteudo"
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+          ></textarea>
+        </div>
+      </div>
+      <!-- Fim -->
+    </main>
+
+    <footer></footer>
+  </body>
+</html>

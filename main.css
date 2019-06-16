@@ -1,0 +1,179 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0%;
+  overflow: hidden;
+}
+
+body {
+  display: grid;
+  grid-template-areas:
+    "h h h h h h h h h h h h"
+    "m m m m m m m m m m m m"
+    "m m m m m m m m m m m m"
+    "m m m m m m m m m m m m"
+    "m m m m m m m m m m m m"
+    "m m m m m m m m m m m m"
+    "m m m m m m m m m m m m"
+    "m m m m m m m m m m m m"
+    "m m m m m m m m m m m m"
+    "m m m m m m m m m m m m"
+    "m m m m m m m m m m m m"
+    "f f f f f f f f f f f f ";
+}
+
+header {
+  grid-area: h;
+  background-color: #e82f09;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
+  margin-left: 10px;
+}
+
+header button {
+  height: 50px;
+  width: 100px;
+}
+
+header div {
+  display: flex;
+  text-decoration: none;
+}
+
+header a {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.header-color {
+  color: bisque;
+}
+
+main {
+  grid-area: m;
+  width: 80%;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+footer {
+  grid-area: f;
+}
+
+.esconder {
+  display: none;
+}
+
+.tela {
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+form {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+form input {
+  margin-bottom: 30px;
+  height: 20px;
+  width: 300px;
+}
+
+button {
+  background-color: #ff5402;
+  border-color: bisque;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.7;
+}
+
+.btn-cadastro {
+  margin-top: 40px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.principal-card {
+  display: flex;
+  align-items: center;
+  height: 120px;
+  max-width: 100%;
+  position: relative;
+  border: solid 1px;
+  border-color: #661504;
+  box-shadow: 3px 3px 3px 3px #661504;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.principal-card:hover {
+  opacity: 0.7;
+}
+
+.principal-card img,
+.principal-card a {
+  height: 100%;
+}
+
+.principal-card div {
+  padding-left: 20px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+.post-post {
+  position: relative;
+}
+
+.post-post img {
+  width: 100%;
+}
+
+.post-post p {
+  text-align: justify;
+  margin-right: 5px;
+}
+
+.novo-post {
+  display: flex;
+  flex-direction: column;
+}
+
+.novo-post input {
+  margin-bottom: 20px;
+}
+
+#botao-like{
+    margin-right: 700px;
+}
+
+#botao-like img {
+  height: 25px;
+  width: 25px;
+  margin-right: 20px;
+}
