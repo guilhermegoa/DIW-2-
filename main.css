@@ -168,9 +168,16 @@ a:hover {
   margin-bottom: 20px;
 }
 
-.comentario-like{
-    display: flex;
-    margin-right: 700px;
+.novo-post button{
+    justify-content: center;
+    height: 40px;
+    width: 100px;
+    margin-top: 10px;
+}
+
+.comentario-like {
+  display: flex;
+  margin-right: 700px;
 }
 
 .comentario-like img {
@@ -180,6 +187,6 @@ a:hover {
 }
 
 .comentario-like p{
-    margin-top: 8px;
-    margin-bottom: 10px;
+  margin-top: 8px;
+  margin-bottom: 10px;
 }

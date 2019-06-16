@@ -1,28 +1,27 @@
 $(document).ready(function () {
 
-    //Caso logado vai para tela principal
-    if (localStorage.getItem('logado') == 'sim') {
-        $('#tela-login').fadeOut('fast');
-        $('#tela-principal').fadeIn();
-        carregaLocalStorage();
-        carregaCards();
-    }
+  //Caso logado vai para tela principal
+  if (localStorage.getItem('logado') == 'sim') {
+    $('#tela-login').fadeOut('fast');
+    $('#tela-principal').fadeIn();
+    carregaLocalStorage();
+    carregaCards();
+  }
 
-    //Caso nao exista db no localStorage
-    function carregaLocalStorage() {
-        var dbGoa;
-        if (!dbGoa) {
-            localStorage.setItem('dbGuilhermeOliveira', JSON.stringify(db));
-        } else {
-            dbGoa = JSON.parse(localStorage.getItem('dbGuilhermeOliveira'));
-        }
+  //Caso nao exista db no localStorage
+  function carregaLocalStorage() {
+    var dbGoa = JSON.parse(localStorage.getItem('dbGuilhermeOliveira'));
+    if (!dbGoa) {
+      localStorage.setItem('dbGuilhermeOliveira', JSON.stringify(db));
     }
+  }
 
-    //Carregar cards
-    function carregaCards() {
-        dbGoa = JSON.parse(localStorage.getItem('dbGuilhermeOliveira'));
-        for (i = 0; i < dbGoa.length; i++) {
-            $('#tela-principal').append(`<ul>
+  //Carregar cards
+  function carregaCards() {
+    dbGoa = JSON.parse(localStorage.getItem('dbGuilhermeOliveira'));
+    $('#tela-principal').html('')
+    for (i = 0; i < dbGoa.length; i++) {
+      $('#tela-principal').append(`<ul>
             <a href="#" type="button">
             <li class="principal-card" noticia="${[i]}">
             <img src="${dbGoa[i].imagem}" alt="" />
@@ -33,13 +32,13 @@ $(document).ready(function () {
           </li>
         </a>
       </ul>`);
-        }
-    };
+    }
+  };
 
-    //Carrega post
-    function carregaPost(noticia) {
-        dbGoa = JSON.parse(localStorage.getItem('dbGuilhermeOliveira'));
-        $('#tela-post').append(`<div class="post-post">
+  //Carrega post
+  function carregaPost(noticia) {
+    dbGoa = JSON.parse(localStorage.getItem('dbGuilhermeOliveira'));
+    $('#tela-post').append(`<div class="post-post">
         <h2>${dbGoa[noticia].titulo}</h2>
         <img src="${dbGoa[noticia].imagem}" alt="" />
         <p>${dbGoa[noticia].conteudo}</p>
@@ -66,68 +65,91 @@ $(document).ready(function () {
           ></textarea>
         </div>
       </section>`);
+  }
+
+  //EVENTOS
+  $('#login-cadastro').on('click', function () {
+    $('#tela-login').fadeOut();
+    $('#tela-cadastro').fadeIn();
+  });
+
+  $('#cadastro-confirmar').on('click', function () {
+    let usuario = {
+      nome: $('#cadastro-nome').val(),
+      senha: $('#cadastro-senha').val()
+    };
+
+    if (!usuario.nome || !usuario.senha) {
+      alert('Há campo em branco');
+    } else {
+      nome = $('#cadastro-nome').val('');
+      email = $('#cadastro-email').val('');
+      senha = $('#cadastro-senha').val('');
+      localStorage.setItem('usuario', JSON.stringify(usuario));
+      $('#tela-cadastro').fadeOut();
+      $('#tela-login').fadeIn();
     }
+  });
 
-    //EVENTOS
-    $('#login-cadastro').on('click', function () {
-        $('#tela-login').fadeOut();
-        $('#tela-cadastro').fadeIn();
-    });
+  $('#login-botao').on('click', function () {
+    usuario = localStorage.getItem('usuario');
+    usuario = JSON.parse(usuario);
+    let nome = $('#login-nome').val();
+    let senha = $('#login-senha').val();
 
-    $('#cadastro-confirmar').on('click', function () {
-        let usuario = {
-            nome: $('#cadastro-nome').val(),
-            senha: $('#cadastro-senha').val()
-        };
+    if (nome === usuario.nome && senha === usuario.senha) {
+      $('#tela-login').fadeOut();
+      $('#tela-principal').fadeIn();
+      localStorage.setItem('logado', 'sim');
+      carregaLocalStorage();
+      carregaCards();
+    } else {
+      alert("Senha/Nome digitados errados ou nao é cadastrado");
+    }
+  });
 
-        if (!usuario.nome || !usuario.senha) {
-            alert('Há campo em branco');
-        } else {
-            nome = $('#cadastro-nome').val('');
-            email = $('#cadastro-email').val('');
-            senha = $('#cadastro-senha').val('');
-            localStorage.setItem('usuario', JSON.stringify(usuario));
-            $('#tela-cadastro').fadeOut();
-            $('#tela-login').fadeIn();
-        }
-    });
+  $('.principal-card').on('click', function (event) {
+    var noticia = $(event.currentTarget).attr('noticia');
+    localStorage.setItem('noticia', noticia);
+    $('#tela-principal').fadeOut();
+    $('#tela-post').fadeIn();
+    carregaPost(noticia);
+  });
 
-    $('#login-botao').on('click', function () {
-        usuario = localStorage.getItem('usuario');
-        usuario = JSON.parse(usuario);
-        let nome = $('#login-nome').val();
-        let senha = $('#login-senha').val();
+  $('#header-botao').on('click', function () {
+    if (localStorage.getItem('logado') == 'sim') {
+      $('#tela-post').fadeOut();
+      $('#tela-principal').fadeOut();
+      $('#tela-criar-post').fadeIn();
+    }
+  })
 
-        if (nome === usuario.nome && senha === usuario.senha) {
-            $('#tela-login').fadeOut();
-            $('#tela-principal').fadeIn();
-            localStorage.setItem('logado', 'sim');
-            carregaLocalStorage();
-            carregaCards();
-        } else {
-            alert("Senha/Nome digitados errados ou nao é cadastrado");
-        }
-    });
+  $('#criar-post-postar').on('click', function () {
+    let novoPost = {
+      autor: $('#criar-post-autor').val(),
+      titulo: $('#criar-post-titulo').val(),
+      descricao: $('#criar-post-descricao').val(),
+      imagem: $('#criar-post-autor').val(),
+      conteudo: $('#criar-post-conteudo').val(),
+      data: "",
+      like: "0",
+      comentario: []
+    };
+    JSON.stringify(novoPost);
 
-    $('.principal-card').on('click', function (event) {
-        var noticia = $(event.currentTarget).attr('noticia');
-        $('#tela-principal').fadeOut();
-        $('#tela-post').fadeIn();
-        carregaPost(noticia);
-    });
-
-    $('#header-botao').on('click', function () {
-        if (localStorage.getItem('logado') == 'sim') {
-            $('#tela-post').fadeOut();
-            $('#tela-principal').fadeOut();
-            $('#tela-criar-post').fadeIn();
-        }
-    })
-
-    $('#botao-like').on('click', function(){
-        var nuemroLike = dbGoa[noticia].like
-        alert('nuemroLike');
-    })
+    if (!novoPost.autor || !novoPost.titulo || !novoPost.descricao || !novoPost.conteudo) {
+      alert('Há campos em branco');
+    } else {
+      dbGoa.push(novoPost);
+      localStorage.setItem('dbGuilhermeOliveira', JSON.stringify(dbGoa));
+      $('#tela-criar-post').fadeOut();
+      $('#tela-principal').fadeIn();
+      carregaCards();
+    }
+  })
+  // $('#botao-like').on('click', function () {
+  //   alert('apertou');
+  // })
 
 
 })

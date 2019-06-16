@@ -8,7 +8,6 @@ var db = [
         "data": "15/01/2019",
         "like": "0",
         "comentario": [{
-            "nome": "",
             "comentario": "",
             "data": ""
         }
@@ -22,7 +21,6 @@ var db = [
         "data": "15/02/2019",
         "like": "0",
         "comentario": [{
-            "nome": "",
             "comentario": "",
             "data": ""
         }
@@ -36,7 +34,6 @@ var db = [
         "data": "15/03/2019",
         "like": "0",
         "comentario": [{
-            "nome": "",
             "comentario": "",
             "data": ""
         }
@@ -50,7 +47,6 @@ var db = [
         "data": "15/04/2019",
         "like": "0",
         "comentario": [{
-            "nome": "",
             "comentario": "",
             "data": ""
         }
@@ -64,7 +60,6 @@ var db = [
         "data": "15/05/2019",
         "like": "0",
         "comentario": [{
-            "nome": "",
             "comentario": "",
             "data": ""
         }
