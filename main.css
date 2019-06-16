@@ -168,12 +168,18 @@ a:hover {
   margin-bottom: 20px;
 }
 
-#botao-like{
+.comentario-like{
+    display: flex;
     margin-right: 700px;
 }
 
-#botao-like img {
+.comentario-like img {
   height: 25px;
   width: 25px;
   margin-right: 20px;
+}
+
+.comentario-like p{
+    margin-top: 8px;
+    margin-bottom: 10px;
 }
