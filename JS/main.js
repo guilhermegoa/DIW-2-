@@ -26,7 +26,10 @@ $(document).ready(function () {
             <li class="principal-card" noticia="${[i]}">
             <img src="${dbGoa[i].imagem}" alt="" />
             <div>
-              <h3>${dbGoa[i].titulo}</h3>
+              <div class="carregaCards-td">
+                  <h3>${dbGoa[i].titulo}</h3>
+                  <span>${dbGoa[i].data}</span>
+              </div>
               <p>${dbGoa[i].descricao}</p>
             </div>
           </li>
@@ -54,6 +57,7 @@ $(document).ready(function () {
           <div>
             <p>${dbGoa[noticia].like}</p>
           </div>
+          <spam class="data-post">${dbGoa[noticia].data}</span>
         </div>
         <div class="coment-coment">
           <div id="comentario-carrega"></div>
@@ -63,6 +67,7 @@ $(document).ready(function () {
             cols="100"
             rows="10"
           ></textarea>
+          <button id="comentario-postar">Comentar</button>
         </div>
       </section>`);
   }
@@ -82,9 +87,9 @@ $(document).ready(function () {
     if (!usuario.nome || !usuario.senha) {
       alert('Há campo em branco');
     } else {
-      nome = $('#cadastro-nome').val('');
-      email = $('#cadastro-email').val('');
-      senha = $('#cadastro-senha').val('');
+      $('#cadastro-nome').val('');
+      $('#cadastro-email').val('');
+      $('#cadastro-senha').val('');
       localStorage.setItem('usuario', JSON.stringify(usuario));
       $('#tela-cadastro').fadeOut();
       $('#tela-login').fadeIn();
@@ -140,6 +145,11 @@ $(document).ready(function () {
     if (!novoPost.autor || !novoPost.titulo || !novoPost.descricao || !novoPost.conteudo) {
       alert('Há campos em branco');
     } else {
+      $('#criar-post-autor').val('');
+      $('#criar-post-titulo').val('')
+      $('#criar-post-descricao').val('')
+      $('#criar-post-autor').val('');
+      $('#criar-post-conteudo').val('');
       dbGoa.push(novoPost);
       localStorage.setItem('dbGuilhermeOliveira', JSON.stringify(dbGoa));
       $('#tela-criar-post').fadeOut();
@@ -147,9 +157,14 @@ $(document).ready(function () {
       carregaCards();
     }
   })
-  // $('#botao-like').on('click', function () {
-  //   alert('apertou');
-  // })
+
+  $('#comentario-postar').on('click', function () {
+    alert('apertou')
+  })
+
+  $('#botao-like').on('click', function () {
+    alert('apertou');
+  })
 
 
 })
