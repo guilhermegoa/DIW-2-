@@ -90,8 +90,7 @@ $(document).ready(function () {
     let mes = data.getMonth();
     let ano = data.getFullYear();
     date = dia + "/" + mes + "/" + ano;
-    localStorage.setItem('data', JSON.stringify(date))
-
+    localStorage.setItem('data', date);
   }
 
   //EVENTOS
