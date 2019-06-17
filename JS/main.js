@@ -2,12 +2,12 @@ $(document).ready(function () {
 
 
   //Caso logado vai para tela principal
-  if (localStorage.getItem('logado') == 'sim') {
-    $('#tela-login').hide();
-    $('#tela-principal').show();
-    carregaLocalStorage();
-    carregaCards();
-  }
+  // if (localStorage.getItem('logado') == 'sim') {
+  //   $('#tela-login').hide();
+  //   $('#tela-principal').show();
+  //   carregaLocalStorage();
+  //   carregaCards();
+  // }
 
   //Caso nao exista db no localStorage
   function carregaLocalStorage() {
@@ -88,46 +88,46 @@ $(document).ready(function () {
   //EVENTOS
   function adicionarEventos() {
 
-    $('#login-cadastro').on('click', function () {
-      $('#tela-login').hide();
-      $('#tela-cadastro').show();
-    });
+    // $('#login-cadastro').on('click', function () {
+    //   $('#tela-login').hide();
+    //   $('#tela-cadastro').show();
+    // });
 
-    $('#cadastro-confirmar').on('click', function () {
-      let usuario = {
-        nome: $('#cadastro-nome').val(),
-        senha: $('#cadastro-senha').val()
-      };
+    // $('#cadastro-confirmar').on('click', function () {
+    //   let usuario = {
+    //     nome: $('#cadastro-nome').val(),
+    //     senha: $('#cadastro-senha').val()
+    //   };
 
-      if (!usuario.nome || !usuario.senha) {
-        alert('Há campo em branco');
-      } else {
-        $('#cadastro-nome').val('');
-        $('#cadastro-email').val('');
-        $('#cadastro-senha').val('');
-        localStorage.setItem('usuario', JSON.stringify(usuario));
-        $('#tela-cadastro').fadeOut();
-        $('#tela-login').fadeIn();
-      }
-    });
+    //   if (!usuario.nome || !usuario.senha) {
+    //     alert('Há campo em branco');
+    //   } else {
+    //     $('#cadastro-nome').val('');
+    //     $('#cadastro-email').val('');
+    //     $('#cadastro-senha').val('');
+    //     localStorage.setItem('usuario', JSON.stringify(usuario));
+    //     $('#tela-cadastro').fadeOut();
+    //     $('#tela-login').fadeIn();
+    //   }
+    // });
 
-    $('#login-botao').on('click', function () {
-      usuario = localStorage.getItem('usuario');
-      usuario = JSON.parse(usuario);
-      let nome = $('#login-nome').val();
-      let senha = $('#login-senha').val();
+    // $('#login-botao').on('click', function () {
+    //   usuario = localStorage.getItem('usuario');
+    //   usuario = JSON.parse(usuario);
+    //   let nome = $('#login-nome').val();
+    //   let senha = $('#login-senha').val();
 
-      if (nome === usuario.nome && senha === usuario.senha) {
-        $('#tela-login').hide();
-        $('#tela-principal').show();
-        localStorage.setItem('logado', 'sim');
-        carregaLocalStorage();
-        carregaCards();
-        location.reload();
-      } else {
-        alert("Senha/Nome digitados errados ou nao é cadastrado");
-      }
-    });
+    //   if (nome === usuario.nome && senha === usuario.senha) {
+    //     $('#tela-login').hide();
+    //     $('#tela-principal').show();
+    //     localStorage.setItem('logado', 'sim');
+    //     carregaLocalStorage();
+    //     carregaCards();
+    //     location.reload();
+    //   } else {
+    //     alert("Senha/Nome digitados errados ou nao é cadastrado");
+    //   }
+    // });
 
     $('.principal-card').on('click', function (event) {
       var noticia = $(event.currentTarget).attr('noticia');
@@ -215,6 +215,7 @@ $(document).ready(function () {
   }
 
   //Rodar ao entrar
+  carregaLocalStorage();
+  carregaCards();
   adicionarEventos();
-
 });
