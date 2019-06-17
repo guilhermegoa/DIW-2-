@@ -75,6 +75,7 @@ $(document).ready(function () {
 
   //Funçao novo comentario
   function novoComentario() {
+    $('#novo-comentario').html('')
     $('#novo-comentario').append(`<div class="coment-coment">
     <input type="text"  id="comentario-nome" placeholder="Nome">
     <textarea id="criar-comentario" cols="100" rows="10" ></textarea>
@@ -83,6 +84,13 @@ $(document).ready(function () {
   }
 
   function pegaData() {
+
+    let data = new Date();
+    let dia = data.getDate();
+    let mes = data.getMonth();
+    let ano = data.getFullYear();
+    date = dia + "/" + mes + "/" + ano;
+    localStorage.setItem('data', JSON.stringify(date))
 
   }
 
@@ -145,21 +153,23 @@ $(document).ready(function () {
     });
 
     $('#header-botao').on('click', function () {
-        $('#tela-post').hide();
-        $('#comentario-carrega').hide();
-        $('#novo-comentario').hide();
-        $('#tela-principal').hide();
-        $('#tela-criar-post').show();
+      $('#tela-post').hide();
+      $('#comentario-carrega').hide();
+      $('#novo-comentario').hide();
+      $('#tela-principal').hide();
+      $('#tela-criar-post').show();
     });
 
     $('#criar-post-postar').on('click', function () {
+      pegaData();
+      let data = localStorage.getItem('data');
       let novoPost = {
         autor: $('#criar-post-autor').val(),
         titulo: $('#criar-post-titulo').val(),
         descricao: $('#criar-post-descricao').val(),
         imagem: $('#criar-post-autor').val(),
         conteudo: $('#criar-post-conteudo').val(),
-        data: "",
+        data: data,
         like: "0",
         comentario: []
       };
@@ -172,7 +182,8 @@ $(document).ready(function () {
         $('#criar-post-autor').val('');
         $('#criar-post-titulo').val('')
         $('#criar-post-descricao').val('')
-        $('#criar-post-autor').val('');
+        $('#criar-post-imagem').val('');
+        $('#criar-post-conteudo').val('');
         $('#criar-post-conteudo').val('');
         dbGoa.push(novoPost);
         localStorage.setItem('dbGuilhermeOliveira', JSON.stringify(dbGoa));
