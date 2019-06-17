@@ -64,6 +64,7 @@ main {
 
 footer {
   grid-area: f;
+  background-color: green;
 }
 
 .esconder {
@@ -121,6 +122,7 @@ ul {
   box-shadow: 3px 3px 3px 3px #661504;
   margin-bottom: 15px;
   cursor: pointer;
+  border-radius: 30px;
 }
 
 .principal-card:hover {
@@ -130,6 +132,7 @@ ul {
 .principal-card img,
 .principal-card a {
   height: 100%;
+  border-radius: 30px;
 }
 
 .principal-card div {

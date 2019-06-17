@@ -20,7 +20,7 @@ $(document).ready(function () {
   function carregaCards() {
     dbGoa = JSON.parse(localStorage.getItem('dbGuilhermeOliveira'));
     $('#tela-principal').html('')
-    for (i = 0; i < dbGoa.length; i++) {
+    for (i = dbGoa.length -1; i >= 0; i--) {
       $('#tela-principal').append(`<ul>
             <a href="#" type="button">
             <li class="principal-card" noticia="${[i]}">
@@ -105,6 +105,7 @@ $(document).ready(function () {
       localStorage.setItem('logado', 'sim');
       carregaLocalStorage();
       carregaCards();
+      location.reload();
     } else {
       alert("Senha/Nome digitados errados ou nao é cadastrado");
     }
@@ -152,7 +153,7 @@ $(document).ready(function () {
       localStorage.setItem('dbGuilhermeOliveira', JSON.stringify(dbGoa));
       $('#tela-criar-post').fadeOut();
       $('#tela-principal').fadeIn();
-      carregaCards();
+      location.reload();
     }
   })
 
