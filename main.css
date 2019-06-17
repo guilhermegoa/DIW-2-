@@ -177,7 +177,7 @@ a:hover {
 
 .comentario-like {
   display: flex;
-  margin-right: 700px;
+  justify-content: space-between;
 }
 
 .comentario-like img {
@@ -185,10 +185,11 @@ a:hover {
   width: 25px;
   margin-right: 20px;
 }
-
-.comentario-like p {
+.like {
+  display: flex;
+}
+.like p{
   margin-top: 8px;
-  margin-bottom: 10px;
 }
 
 .data-post {

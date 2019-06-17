@@ -49,15 +49,12 @@ $(document).ready(function () {
       <section id="comentarios">
         <div class="comentario-like">
           <a type="button" id="botao-like">
-            <img
+            <div class="like"><img
               src="https://cdn4.iconfinder.com/data/icons/like-18/32/459-01-512.png"
-              alt="likeImg"
-            />
-          </a>
-          <div>
-            <p>${dbGoa[noticia].like}</p>
-          </div>
-          <spam class="data-post">${dbGoa[noticia].data}</span>
+              alt="likeImg"/></a>
+             <p>${dbGoa[noticia].like}</p>
+            </div>
+          <div><spam id="data-post">${dbGoa[noticia].data}</span></div>
         </div>
         <div class="coment-coment">
           <div id="comentario-carrega"></div>
@@ -67,7 +64,7 @@ $(document).ready(function () {
             cols="100"
             rows="10"
           ></textarea>
-          <button id="comentario-postar">Comentar</button>
+          <div><button id="comentario-postar">Comentar</button></div>
         </div>
       </section>`);
   }
@@ -140,6 +137,7 @@ $(document).ready(function () {
       like: "0",
       comentario: []
     };
+
     JSON.stringify(novoPost);
 
     if (!novoPost.autor || !novoPost.titulo || !novoPost.descricao || !novoPost.conteudo) {
