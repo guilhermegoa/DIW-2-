@@ -68,19 +68,16 @@ $(document).ready(function () {
     $('#comentario-carrega').html('')
     for (i = dbGoa[noticia].comentario.length - 1; i >= 0; i--) {
       let coment = dbGoa[noticia].comentario[i].comentario;
-      $('#comentario-carrega').append(`<p>${coment}</p>`);
+      let nome = dbGoa[noticia].comentario[i].nome;
+      $('#comentario-carrega').append(`<div><p>${nome}</p><p>${coment}</p></div>`);
     }
   }
 
   //Funçao novo comentario
   function novoComentario() {
     $('#novo-comentario').append(`<div class="coment-coment">
-    <textarea
-      name=""
-      id="criar-comentario"
-      cols="100"
-      rows="10"
-    ></textarea>
+    <input type="text"  id="comentario-nome" placeholder="Nome">
+    <textarea id="criar-comentario" cols="100" rows="10" ></textarea>
     <div><button id="comentario-postar">Comentar</button></div>
   </div>`)
   }
@@ -188,17 +185,19 @@ $(document).ready(function () {
   function eventoPostar() {
     $('#comentario-postar').on('click', function () {
       let comentario = {
+        nome: $('#comentario-nome').val(),
         comentario: $('#criar-comentario').val()
       }
       dbGoa = JSON.parse(localStorage.getItem('dbGuilhermeOliveira'));
       noticia = localStorage.getItem('noticia')
 
-      if (!comentario.comentario) {
-        alert('Campo de comnetario esta em branco')
+      if (!comentario.comentario || !comentario.nome) {
+        alert('Campo de comnetario esta em branco');
       } else {
-        JSON.stringify(comentario)
-        dbGoa[noticia].comentario.push(comentario)
+        JSON.stringify(comentario);
+        dbGoa[noticia].comentario.push(comentario);
         localStorage.setItem('dbGuilhermeOliveira', JSON.stringify(dbGoa));
+        $('#comentario-nome').val('');
         $('#criar-comentario').val('');
         carregaComentario();
       }
