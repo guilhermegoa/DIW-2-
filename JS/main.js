@@ -60,7 +60,7 @@ $(document).ready(function () {
           <div><spam id="data-post">${dbGoa[noticia].data}</span></div>
         </div>
       </section>`);
-      
+
   }
 
   //Funçao carrega comentario   
@@ -80,6 +80,10 @@ $(document).ready(function () {
     <textarea id="criar-comentario" cols="100" rows="10" ></textarea>
     <div><button id="comentario-postar">Comentar</button></div>
   </div>`)
+  }
+
+  function pegaData() {
+
   }
 
   //EVENTOS
@@ -148,7 +152,7 @@ $(document).ready(function () {
         $('#tela-principal').hide();
         $('#tela-criar-post').show();
       }
-    })
+    });
 
     $('#criar-post-postar').on('click', function () {
       let novoPost = {
@@ -208,8 +212,16 @@ $(document).ready(function () {
 
   function eventoLike() {
     $('#botao-like').on('click', function () {
-      alert('apertou');
-
+      dbGoa = JSON.parse(localStorage.getItem('dbGuilhermeOliveira'));
+      noticia = localStorage.getItem('noticia');
+      like = dbGoa[noticia].like;
+      parseInt(like, 10);
+      like++;
+      JSON.stringify(dbGoa)
+      dbGoa[noticia].like = like;
+      localStorage.setItem('dbGuilhermeOliveira', JSON.stringify(dbGoa))
+      carregaPost();
+      eventoLike();
     })
   }
 
