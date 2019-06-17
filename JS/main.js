@@ -145,13 +145,11 @@ $(document).ready(function () {
     });
 
     $('#header-botao').on('click', function () {
-      if (localStorage.getItem('logado') == 'sim') {
         $('#tela-post').hide();
         $('#comentario-carrega').hide();
         $('#novo-comentario').hide();
         $('#tela-principal').hide();
         $('#tela-criar-post').show();
-      }
     });
 
     $('#criar-post-postar').on('click', function () {
