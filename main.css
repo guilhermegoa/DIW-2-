@@ -64,7 +64,6 @@ main {
 
 footer {
   grid-area: f;
-  background-color: green;
 }
 
 .esconder {
@@ -117,8 +116,6 @@ ul {
   height: 120px;
   max-width: 100%;
   position: relative;
-  border: solid 1px;
-  border-color: #661504;
   box-shadow: 3px 3px 3px 3px #661504;
   margin-bottom: 15px;
   cursor: pointer;
@@ -191,7 +188,7 @@ a:hover {
 .like {
   display: flex;
 }
-.like p{
+.like p {
   margin-top: 8px;
 }
 
@@ -209,10 +206,47 @@ a:hover {
 
 .carregaCards-td {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.carregaCards-td span {
-  padding-top: 22px;
-  padding-right: 10px;
+.carregaCards-td p {
+  margin-top: 22px;
+}
+
+.td {
+  display: flex;
+}
+
+.carregaCards-td div button {
+  margin-top: 20px;
+}
+
+.comentario-nome {
+  text-align: left;
+  padding-left: 20px;
+}
+
+#comentario-carrega {
+  text-align: left;
+  border: solid 4px;
+  border-color: #f35d2f;
+  background-color: #fda379;
+  border-radius: 20px;
+}
+
+#comentario-carrega div {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  background-color: #f7c2ae;
+  border-radius: 10px;
+  padding-left: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.comentario-carrega {
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-bottom: 10px;
 }

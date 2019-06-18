@@ -28,8 +28,8 @@ $(document).ready(function () {
             <img src="${dbGoa[i].imagem}" alt="" />
             <div>
               <div class="carregaCards-td">
-                  <h3>${dbGoa[i].titulo}</h3>
-                  <span>${dbGoa[i].data}</span>
+                  <div><h3>${dbGoa[i].titulo}</h3></div>
+                  <div><p>${dbGoa[i].data}</p></div>
               </div>
               <p>${dbGoa[i].descricao}</p>
             </div>
@@ -45,7 +45,10 @@ $(document).ready(function () {
     noticia = localStorage.getItem('noticia')
     $('#tela-post').html('')
     $('#tela-post').append(`<div class="post-post">
-        <h2>${dbGoa[noticia].titulo}</h2>
+        <div>
+          <h2>${dbGoa[noticia].titulo}</h2>
+          <button id="excluir">Excluir</button>
+        </div>
         <img src="${dbGoa[noticia].imagem}" alt="" />
         <p>${dbGoa[noticia].conteudo}</p>
       </div>
@@ -69,7 +72,7 @@ $(document).ready(function () {
     for (i = dbGoa[noticia].comentario.length - 1; i >= 0; i--) {
       let coment = dbGoa[noticia].comentario[i].comentario;
       let nome = dbGoa[noticia].comentario[i].nome;
-      $('#comentario-carrega').append(`<div><p>${nome}</p><p>${coment}</p></div>`);
+      $('#comentario-carrega').append(`<div><p>Nome:${nome}</p><p>Comentario:${coment}</p></div>`);
     }
   }
 
@@ -77,7 +80,7 @@ $(document).ready(function () {
   function novoComentario() {
     $('#novo-comentario').html('')
     $('#novo-comentario').append(`<div class="coment-coment">
-    <input type="text"  id="comentario-nome" placeholder="Nome">
+    <div class="comentario-nome" ><input type="text"  id="comentario-nome" placeholder="Nome"></div>
     <textarea id="criar-comentario" cols="100" rows="10" ></textarea>
     <div><button id="comentario-postar">Comentar</button></div>
   </div>`)
@@ -149,6 +152,7 @@ $(document).ready(function () {
       novoComentario();
       eventoPostar();
       eventoLike();
+      eventoExcluir()
     });
 
     $('#header-botao').on('click', function () {
@@ -229,6 +233,16 @@ $(document).ready(function () {
       localStorage.setItem('dbGuilhermeOliveira', JSON.stringify(dbGoa))
       carregaPost();
       eventoLike();
+    })
+  }
+
+  function eventoExcluir() {
+    $('#excluir').on('click', function () {
+      dbGoa = JSON.parse(localStorage.getItem('dbGuilhermeOliveira'));
+      noticia = localStorage.getItem('noticia')
+      dbGoa.splice(noticia, 1);
+      localStorage.setItem('dbGuilhermeOliveira', JSON.stringify(dbGoa));
+      location.reload();
     })
   }
 
