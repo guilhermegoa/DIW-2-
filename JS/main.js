@@ -166,7 +166,7 @@ $(document).ready(function () {
         autor: $('#criar-post-autor').val(),
         titulo: $('#criar-post-titulo').val(),
         descricao: $('#criar-post-descricao').val(),
-        imagem: $('#criar-post-autor').val(),
+        imagem: $('#criar-post-imagem').val(),
         conteudo: $('#criar-post-conteudo').val(),
         data: data,
         like: "0",
@@ -182,7 +182,6 @@ $(document).ready(function () {
         $('#criar-post-titulo').val('')
         $('#criar-post-descricao').val('')
         $('#criar-post-imagem').val('');
-        $('#criar-post-conteudo').val('');
         $('#criar-post-conteudo').val('');
         dbGoa.push(novoPost);
         localStorage.setItem('dbGuilhermeOliveira', JSON.stringify(dbGoa));
