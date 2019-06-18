@@ -80,7 +80,7 @@ $(document).ready(function () {
   function novoComentario() {
     $('#novo-comentario').html('')
     $('#novo-comentario').append(`<div class="coment-coment">
-    <div class="comentario-nome" ><input type="text"  id="comentario-nome" placeholder="Nome"></div>
+    <input type="text"  id="comentario-nome" placeholder="Nome">
     <textarea id="criar-comentario" cols="100" rows="10" ></textarea>
     <div><button id="comentario-postar">Comentar</button></div>
   </div>`)
@@ -233,6 +233,7 @@ $(document).ready(function () {
       localStorage.setItem('dbGuilhermeOliveira', JSON.stringify(dbGoa))
       carregaPost();
       eventoLike();
+      eventoExcluir()
     })
   }
 
