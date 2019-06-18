@@ -22,8 +22,9 @@ $(document).ready(function () {
     dbGoa = JSON.parse(localStorage.getItem('dbGuilhermeOliveira'));
     $('#tela-principal').html('')
     for (i = dbGoa.length - 1; i >= 0; i--) {
-      $('#tela-principal').append(`<ul>
-            <a href="#" type="button">
+      $('#tela-principal').append(`<div>
+        <ul>
+          <a href="#" type="button">
             <li class="principal-card" noticia="${[i]}">
             <img src="${dbGoa[i].imagem}" alt="" />
             <div>
@@ -35,7 +36,7 @@ $(document).ready(function () {
             </div>
           </li>
         </a>
-      </ul>`);
+      </ul></div>`);
     }
   };
 
