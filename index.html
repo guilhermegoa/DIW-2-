@@ -25,7 +25,7 @@
 
     <main>
       <!-- Tela login -->
-      <div id="tela-login" class="tela">
+      <!-- <div id="tela-login" class="tela">
         <form action="" id="form-login">
           <input id="login-nome" type="text" placeholder="Nome" />
           <input id="login-senha" type="password" placeholder="Senha" />
@@ -34,11 +34,11 @@
             cadastre-se
           </button>
         </form>
-      </div>
+      </div> -->
       <!-- Fim -->
 
       <!-- Tela de cadastro -->
-      <div id="tela-cadastro" class="tela esconder">
+      <!-- <div id="tela-cadastro" class="tela esconder">
         <form action="" id="form-cadastro">
           <input id="cadastro-nome" type="text" placeholder="Nome" />
           <input id="cadastro-email" type="text" placeholder="email" />
@@ -47,15 +47,22 @@
             cadastrar
           </button>
         </form>
-      </div>
+      </div> -->
       <!-- Fim -->
 
       <!-- Tela principal -->
-      <div id="tela-principal" class="tela esconder"></div>
+      <div id="tela-principal" class="tela"></div>
       <!-- Fim -->
 
       <!-- Tela post-->
-      <div id="tela-post" class="tela esconder"></div>
+      <div>
+        <div id="tela-post" class="tela esconder"></div>
+        <div id="post-post" class="tela esconder"></div>
+        <div class="comentario-carrega">
+          <div id="comentario-carrega" class="tela esconder"></div>
+        </div>
+        <div id="novo-comentario" class="tela esconder"></div>
+      </div>
       <!-- Fim -->
 
       <!-- Tela criar post -->
@@ -72,8 +79,8 @@
           <input
             id="criar-post-imagem"
             class="sem-cor"
-            type="file"
-            placeholder="Imagem"
+            type="url"
+            placeholder="URL Imagem"
           />
           <textarea
             id="criar-post-conteudo"
@@ -82,6 +89,7 @@
             cols="30"
             rows="10"
           ></textarea>
+          <div><button id="criar-post-postar">Postar</button></div>
         </div>
       </div>
       <!-- Fim -->

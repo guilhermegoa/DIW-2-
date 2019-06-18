@@ -116,11 +116,10 @@ ul {
   height: 120px;
   max-width: 100%;
   position: relative;
-  border: solid 1px;
-  border-color: #661504;
   box-shadow: 3px 3px 3px 3px #661504;
   margin-bottom: 15px;
   cursor: pointer;
+  border-radius: 30px;
 }
 
 .principal-card:hover {
@@ -130,6 +129,7 @@ ul {
 .principal-card img,
 .principal-card a {
   height: 100%;
+  border-radius: 30px;
 }
 
 .principal-card div {
@@ -168,9 +168,16 @@ a:hover {
   margin-bottom: 20px;
 }
 
-.comentario-like{
-    display: flex;
-    margin-right: 700px;
+.novo-post button {
+  justify-content: center;
+  height: 40px;
+  width: 100px;
+  margin-top: 10px;
+}
+
+.comentario-like {
+  display: flex;
+  justify-content: space-between;
 }
 
 .comentario-like img {
@@ -178,8 +185,68 @@ a:hover {
   width: 25px;
   margin-right: 20px;
 }
+.like {
+  display: flex;
+}
+.like p {
+  margin-top: 8px;
+}
 
-.comentario-like p{
-    margin-top: 8px;
-    margin-bottom: 10px;
+.data-post {
+  margin-top: 8px;
+  padding-left: 500px;
+}
+
+.coment-coment button {
+  height: 40px;
+  width: 100px;
+  margin-bottom: 50px;
+  margin-top: 10px;
+}
+
+.carregaCards-td {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.carregaCards-td p {
+  margin-top: 22px;
+}
+
+.td {
+  display: flex;
+}
+
+.carregaCards-td div button {
+  margin-top: 20px;
+}
+
+.comentario-nome {
+  text-align: left;
+  padding-left: 20px;
+}
+
+#comentario-carrega {
+  text-align: left;
+  border: solid 4px;
+  border-color: #f35d2f;
+  background-color: #fda379;
+  border-radius: 20px;
+}
+
+#comentario-carrega div {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  background-color: #f7c2ae;
+  border-radius: 10px;
+  padding-left: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.comentario-carrega {
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-bottom: 10px;
 }
